@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "idered.npm",
+        "esbenp.prettier-vscode",
+        "rvest.vs-code-prettier-eslint",
+        "pmneo.tsimporter"
+    ]
+}

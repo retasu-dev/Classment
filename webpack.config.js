@@ -1,0 +1,55 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
+/* eslint-disable no-undef */
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const GasPlugin = require('gas-webpack-plugin');
+
+const tsconfigFile = __dirname + '/tsconfig.json';
+
+module.exports = {
+  mode: 'development',
+  devtool: false,
+  entry: {
+    Code: './src/index.ts',
+  },
+  output: {
+    path: __dirname + '/dist',
+    filename: 'bundle.js',
+  },
+  resolve: {
+    extensions: ['.js', '.json', '.ts'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          // disable type checker - we will use it in fork plugin
+          transpileOnly: true,
+        },
+      },
+    ],
+  },
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: tsconfigFile,
+      },
+    }),
+    new GasPlugin({
+      autoGlobalExportsFiles: ['index.ts'],
+    }),
+
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: './src/appsscript.json' },
+        //              { from: './setting.js' }  // 不要です (2024/03/01加筆修正)
+      ],
+    }),
+  ],
+  optimization: {
+    minimize: false,
+  },
+};
