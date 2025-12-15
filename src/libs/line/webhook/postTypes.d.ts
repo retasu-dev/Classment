@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 declare const enum postTypes {
   Reply = 'reply',
   Push = 'push',

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { apiCore } from "./core";
 
 export const enum messageApi {
