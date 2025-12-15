@@ -1,3 +1,4 @@
+import { openRouterModel } from '../../options/llm';
 import { openRouterAPI } from '../../secrets';
 import { OpenAIChatCompletionResponse } from './openrouterResponse';
 
@@ -5,7 +6,7 @@ export function runOpenRouterAPI(prompt: string): string {
   const OPENROUTER_API = openRouterAPI;
   const url = `https://openrouter.ai/api/v1/chat/completions`;
   const payload = {
-      model: 'google/gemma-3-12b-it:free',
+      model: openRouterModel,
       messages: [
         {
           role: 'user',

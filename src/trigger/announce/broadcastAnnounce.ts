@@ -2,11 +2,13 @@ import { getDocumentData } from '../../libs/drive/file/getDocumentData';
 import { getLatestFile } from '../../libs/drive/file/getLatestFile';
 import { PostBroadcast } from '../../libs/line/webhook/broadcast';
 import { isHoliday } from '../../libs/sys/date';
+import { disabeleSkipOnHoliday } from '../../options/devOptions';
+import { failedToGetAnnounceMessage } from '../../options/messages';
 import { driveSecret } from '../../secrets';
 import { FormatRawAnnounce } from './formatRawAnnounce';
 
 export function broadcastAnnounce() {
-  if (isHoliday()) {
+  if (!disabeleSkipOnHoliday && isHoliday()) {
     console.info('Today is holiday. Skip announcement.');
     return;
   }
@@ -21,7 +23,7 @@ export function broadcastAnnounce() {
     console.error((error as Error).message);
     PostBroadcast({
       messages: [
-        { type: 'text', text: '終礼連絡の取得に失敗しました。' },
+        { type: 'text', text: failedToGetAnnounceMessage},
         { type: 'text', text: (error as Error).message },
       ],
       notificationDisabled: false,

@@ -4,7 +4,6 @@ import { broadcastWeekEvents } from './trigger/calendar/broadcastWeekEvents';
 import { broadcastAnnounce } from './trigger/announce/broadcastAnnounce';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 declare let global: any;
-export const disableBroadcast = false;
 
 global.broadcastTest = () => {
   PostBroadcast({

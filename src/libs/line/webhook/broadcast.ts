@@ -1,4 +1,4 @@
-import { disableBroadcast } from '../../..';
+import { disableBroadcast } from '../../../options/devOptions';
 import { messageApi } from '../../../api/line/message';
 import { BroadcastMessage } from '../messageTypes';
 import { ReturnOption } from './option';
