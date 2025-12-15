@@ -7,6 +7,17 @@ const option = {
 }
 
 export function runOCR(targetFileId: string) {
+	console.log('Starting OCR for file ID: ' + targetFileId)
+	if (!DriveApp.getFolderById(driveId).getFoldersByName('Output').hasNext()) {
+		DriveApp.getFolderById(driveId).createFolder('Output')
+		console.log('Created Output folder')
+	}
+	try {
+		DriveApp.getFileById(targetFileId)
+	} catch (e) {
+		console.log('File not found: ' + targetFileId)
+		throw new Error('File not found: ' + targetFileId)
+	}
 	const tFile = DriveApp.getFileById(targetFileId)
 	if (!tFile) {
 		console.log('No files found in the selected folder.')
@@ -18,13 +29,12 @@ export function runOCR(targetFileId: string) {
 		mimeType: 'application/vnd.google-apps.document',
 	}
 	let orcData = Drive.Files.copy(resource, tFile.getId(),option)
+	console.log(orcData.id)
 	if (!orcData.id) {
 		console.log('Couldnt get ocr file id')
 		throw new Error('Couldnt get ocr file id')
 	}
 	const file = DriveApp.getFileById(orcData.id)
-	if (!DriveApp.getFoldersByName('Output').hasNext())
-		DriveApp.createFolder('Output')
 	const outputFolder = DriveApp.getFoldersByName('Output').next()
 	file.moveTo(outputFolder)
 	console.log(orcData.id)
@@ -52,6 +62,7 @@ export function runOCR(targetFileId: string) {
 
 	// 上書き
 	body.setText(text)
+	console.log(text)
 }
 
 export function getOutputOCRFolder() {
