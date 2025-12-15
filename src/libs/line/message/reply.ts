@@ -1,5 +1,5 @@
-import { UserMessage, ReplyMessage } from '../messageTypes';
-import { PostReply } from '../webhook/reply';
+import { UserMessage, ReplyMessage } from '../messageTypes'
+import { PostReply } from '../webhook/reply'
 
 export function PostMessage(message: string, event: UserMessage) {
   const replyMessage: ReplyMessage = {
@@ -10,7 +10,7 @@ export function PostMessage(message: string, event: UserMessage) {
         text: message,
       },
     ],
-  };
+  }
 
-  PostReply(replyMessage);
+  PostReply(replyMessage)
 }

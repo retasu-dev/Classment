@@ -1,1 +1,1 @@
-export const failedToGetAnnounceMessage = '終礼連絡の取得に失敗しました。';
+export const failedToGetAnnounceMessage = '終礼連絡の取得に失敗しました。'

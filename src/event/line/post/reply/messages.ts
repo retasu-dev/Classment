@@ -6,4 +6,4 @@ export const messages = {
     '1. /help : Shows this message.\n' +
     '2. /calendar : Sends the schedule for the next week.\n' +
     '3. /announce : Sends the latest announcement.\n',
-};
+}

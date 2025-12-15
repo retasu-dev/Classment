@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export interface RecipientObjects {
   type: string;
   audienceGroupId: number;
