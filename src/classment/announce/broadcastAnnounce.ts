@@ -6,16 +6,18 @@ import { disabeleSkipOnHoliday } from '../../options/devOptions'
 import { failedToGetAnnounceMessage } from '../../options/messages'
 import { driveId } from '../../secrets'
 import { FormatRawAnnounce } from './formatRawAnnounce'
+import { getOutputOCRFolder, runOCR } from '../../libs/drive/ocr'
 
 export function broadcastAnnounce() {
 	if (!disabeleSkipOnHoliday && isHoliday()) {
 		console.info('Today is holiday. Skip announcement.')
 		return
 	}
-
+	
 	let response
 	try {
-		response = FormatRawAnnounce(getDocumentData(getLatestFile(driveId)!.getId()))
+		runOCR(getLatestFile(driveId)!.getId())
+		response = FormatRawAnnounce(getDocumentData(getLatestFile(getOutputOCRFolder().getId())!.getId()))
 		if (!response) throw new Error('Formated annoucement is undefined.')
 	} catch (error) {
 		console.error('Failed to get announcement.')

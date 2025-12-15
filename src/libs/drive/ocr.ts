@@ -6,29 +6,29 @@ const option = {
 	ocrLanguage: 'ja',
 }
 
-export function runOCR() {
-	const ltfile = getLatestFile(driveId)
-	if (!ltfile) {
+export function runOCR(targetFileId: string) {
+	const tFile = DriveApp.getFileById(targetFileId)
+	if (!tFile) {
 		console.log('No files found in the selected folder.')
 		throw new Error('No files found in the specified folder.')
 	}
-	const subject = ltfile.getName()
+	const subject = tFile.getName()
 	let resource = {
 		title: subject,
-		mimeType: 'application/pdf',
+		mimeType: 'application/vnd.google-apps.document',
 	}
-	let image = Drive.Files.copy(resource, ltfile.getId())
-	if (!image.id) {
+	let orcData = Drive.Files.copy(resource, tFile.getId(),option)
+	if (!orcData.id) {
 		console.log('Couldnt get ocr file id')
 		throw new Error('Couldnt get ocr file id')
 	}
-	const file = DriveApp.getFileById(image.id)
+	const file = DriveApp.getFileById(orcData.id)
 	if (!DriveApp.getFoldersByName('Output').hasNext())
 		DriveApp.createFolder('Output')
 	const outputFolder = DriveApp.getFoldersByName('Output').next()
 	file.moveTo(outputFolder)
-	console.log(image.id)
-	let doc = DocumentApp.openById(image.id) // コピー先ファイルのOCRのデータを取得
+	console.log(orcData.id)
+	let doc = DocumentApp.openById(orcData.id) // コピー先ファイルのOCRのデータを取得
 	var body = doc.getBody()
 	var text = body.getText()
 
@@ -52,4 +52,10 @@ export function runOCR() {
 
 	// 上書き
 	body.setText(text)
+}
+
+export function getOutputOCRFolder() {
+	if (!DriveApp.getFoldersByName('Output').hasNext())
+		DriveApp.createFolder('Output')
+	return DriveApp.getFoldersByName('Output').next()
 }
