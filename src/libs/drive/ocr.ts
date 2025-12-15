@@ -15,9 +15,9 @@ export function runOCR() {
 	const subject = ltfile.getName()
 	let resource = {
 		title: subject,
-		mimeType: MimeType.GOOGLE_DOCS,
+		mimeType: 'application/pdf',
 	}
-	let image = Drive.Files.copy(resource, ltfile.getId(), option)
+	let image = Drive.Files.copy(resource, ltfile.getId())
 	if (!image.id) {
 		console.log('Couldnt get ocr file id')
 		throw new Error('Couldnt get ocr file id')
