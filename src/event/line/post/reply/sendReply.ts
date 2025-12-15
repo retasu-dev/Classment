@@ -1,22 +1,22 @@
-import { PostMessage } from '../../../../api/line/message/reply';
-import { UserMessage } from '../../../../api/line/messageTypes';
-import { messages } from './messages';
-import { ReplyAnnounce } from './replyAnnounce';
-import { ReplyCalendar } from './replyCalender';
+import { PostMessage } from '../../../../api/line/message/reply'
+import { UserMessage } from '../../../../api/line/messageTypes'
+import { messages } from './messages'
+import { ReplyAnnounce } from './replyAnnounce'
+import { ReplyCalendar } from './replyCalender'
 
 export function sendReply(event: UserMessage, message: string) {
   switch (message) {
     case '/help':
-      PostMessage(messages.help, event);
-      break;
+      PostMessage(messages.help, event)
+      break
     case '/calendar':
-      ReplyCalendar(event);
-      break;
+      ReplyCalendar(event)
+      break
     case '/announce':
-      ReplyAnnounce(event);
-      break;
+      ReplyAnnounce(event)
+      break
     default:
-      PostMessage(messages.welcome, event);
-      break;
+      PostMessage(messages.welcome, event)
+      break
   }
 }

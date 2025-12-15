@@ -1,6 +1,6 @@
-import { runOpenRouterAPI } from '../../api/openrouter/openrouter';
-import { MessageBody } from '../../api/line/messageTypes';
-import { llmPrompt } from '../../options/llm';
+import { runOpenRouterAPI } from '../../api/openrouter/openrouter'
+import { MessageBody } from '../../api/line/messageTypes'
+import { llmPrompt } from '../../options/llm'
 
 export function FormatRawAnnounce(documentData: string) {
   const messages: MessageBody[] = [
@@ -8,6 +8,6 @@ export function FormatRawAnnounce(documentData: string) {
       type: 'text',
       text: runOpenRouterAPI(documentData + llmPrompt),
     },
-  ];
-  return messages;
+  ]
+  return messages
 }
