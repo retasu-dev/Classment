@@ -1,4 +1,4 @@
-import { runOpenRouterAPI } from '../../libs/openrouter/openrouter'
+import { runOpenRouterAPI } from '../../api/openrouter/openrouter'
 import { MessageBody } from '../../libs/line/messageTypes'
 import { llmPrompt } from '../../options/llm'
 
