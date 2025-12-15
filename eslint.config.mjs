@@ -18,7 +18,7 @@ export default [
       'no-duplicate-imports': 'warn',
       'no-duplicate-case': 'warn',
       'no-lonely-if': 'warn',
-
+      'indent': ['error', 'tab'],
 
       'no-extra-semi': 'error',
       'semi': ['error', 'never'],

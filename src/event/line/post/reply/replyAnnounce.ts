@@ -6,9 +6,9 @@ import { driveId } from '../../../../secrets'
 import { FormatRawAnnounce } from '../../../../classment/announce/formatRawAnnounce'
 
 export function ReplyAnnounce(userMessage: UserMessage) {
-  const reply: ReplyMessage = {
-    replyToken: userMessage.replyToken,
-    messages: FormatRawAnnounce(getDocumentData(getLatestFile(driveId)!.getId())),
-  }
-  PostReply(reply)
+	const reply: ReplyMessage = {
+		replyToken: userMessage.replyToken,
+		messages: FormatRawAnnounce(getDocumentData(getLatestFile(driveId)!.getId())),
+	}
+	PostReply(reply)
 }

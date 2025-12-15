@@ -8,31 +8,31 @@ import { driveId } from '../../secrets'
 import { FormatRawAnnounce } from './formatRawAnnounce'
 
 export function broadcastAnnounce() {
-  if (!disabeleSkipOnHoliday && isHoliday()) {
-    console.info('Today is holiday. Skip announcement.')
-    return
-  }
+	if (!disabeleSkipOnHoliday && isHoliday()) {
+		console.info('Today is holiday. Skip announcement.')
+		return
+	}
 
-  let response
-  try {
-    response = FormatRawAnnounce(getDocumentData(getLatestFile(driveId)!.getId()))
-    if (!response) throw new Error('Formated annoucement is undefined.')
-  } catch (error) {
-    console.error('Failed to get announcement.')
-    console.error(response)
-    console.error((error as Error).message)
-    PostBroadcast({
-      messages: [
-        { type: 'text', text: failedToGetAnnounceMessage },
-        { type: 'text', text: (error as Error).message },
-      ],
-      notificationDisabled: false,
-    })
-    return
-  }
+	let response
+	try {
+		response = FormatRawAnnounce(getDocumentData(getLatestFile(driveId)!.getId()))
+		if (!response) throw new Error('Formated annoucement is undefined.')
+	} catch (error) {
+		console.error('Failed to get announcement.')
+		console.error(response)
+		console.error((error as Error).message)
+		PostBroadcast({
+			messages: [
+				{ type: 'text', text: failedToGetAnnounceMessage },
+				{ type: 'text', text: (error as Error).message },
+			],
+			notificationDisabled: false,
+		})
+		return
+	}
 
-  PostBroadcast({
-    messages: response,
-    notificationDisabled: false,
-  })
+	PostBroadcast({
+		messages: response,
+		notificationDisabled: false,
+	})
 }
