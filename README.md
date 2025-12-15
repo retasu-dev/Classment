@@ -39,6 +39,25 @@ All packages required to run the app on Google Apps Script are provided at build
 - **TypeScript**: compile `.ts` to JS
 - **webpack**: bundle the project for GAS
 - **clasp**: deploy bundled code to Google Apps Script
+ - **Node.js**: runtime for build scripts (v16+ recommended)
+ - **Development dependencies:**
+	 - `@eslint/js` — ^9.30.1
+	 - `@types/google-apps-script` — ^1.0.97
+	 - `@typescript-eslint/eslint-plugin` — ^8.35.1
+	 - `@typescript-eslint/parser` — ^8.35.1
+	 - `clasp` — ^1.0.0
+	 - `copy-webpack-plugin` — ^13.0.0
+	 - `eslint` — ^9.30.1
+	 - `fork-ts-checker-webpack-plugin` — ^9.1.0
+	 - `gas-webpack-plugin` — ^2.6.0
+	 - `globals` — ^16.3.0
+	 - `ts-loader` — ^9.5.2
+	 - `ts-node` — ^10.9.2
+	 - `typescript` — ^5.8.3
+	 - `typescript-eslint` — ^8.49.0
+	 - `webpack-cli` — ^6.0.1
+
+Note: These packages are used at build/deploy time; the Google Apps Script runtime does not require them.
 
 Packages are installed as dev dependencies; the runtime (GAS) does not require these packages to be present.
 
