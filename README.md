@@ -14,7 +14,7 @@ npm install
 ```
 ## ⚙️ Environment
 ### Configuration
-This application is designed to run on Google Apps Script (GAS). 
+This application is designed to run on Google Apps Script (GAS).
 You must set the following properties in your GAS script environment.
 |Property|Value|Description|
 |---|---|---|
@@ -32,9 +32,15 @@ npm run deploy
 ```
 This command compiles the TypeScript code and uploads it to your Google Apps Script project.
 
-## 🛠️ Dependencies
-- Node.js version 16 or higher
-- TypeScript version 4 or higher
+## 📦 Dependencies
+All packages required to run the app on Google Apps Script are provided at build time. The project uses the following development tools (install via `npm install`):
+
+- **Node.js**: runtime for build scripts (v16+ recommended)
+- **TypeScript**: compile `.ts` to JS
+- **webpack**: bundle the project for GAS
+- **clasp**: deploy bundled code to Google Apps Script
+
+Packages are installed as dev dependencies; the runtime (GAS) does not require these packages to be present.
 
 ## 📄 License
 This project is licensed under the MIT License. See the LICENSE file for full details.
