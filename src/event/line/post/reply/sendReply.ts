@@ -1,5 +1,5 @@
-import { PostMessage } from '../../../../libs/line/message/reply'
-import { UserMessage } from '../../../../libs/line/messageTypes'
+import { PostMessage } from '../../../../api/line/message/reply'
+import { UserMessage } from '../../../../api/line/messageTypes'
 import { messages } from './messages'
 import { ReplyAnnounce } from './replyAnnounce'
 import { ReplyCalendar } from './replyCalender'

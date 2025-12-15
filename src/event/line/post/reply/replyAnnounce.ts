@@ -1,9 +1,9 @@
 import { getDocumentData } from '../../../../libs/drive/file/getDocumentData'
 import { getLatestFile } from '../../../../libs/drive/file/getLatestFile'
-import { UserMessage, ReplyMessage } from '../../../../libs/line/messageTypes'
-import { PostReply } from '../../../../libs/line/webhook/reply'
+import { UserMessage, ReplyMessage } from '../../../../api/line/messageTypes'
+import { PostReply } from '../../../../api/line/webhook/reply'
 import { driveSecret } from '../../../../secrets'
-import { FormatRawAnnounce } from '../../../../trigger/announce/formatRawAnnounce'
+import { FormatRawAnnounce } from '../../../../classment/announce/formatRawAnnounce'
 
 export function ReplyAnnounce(userMessage: UserMessage) {
   const reply: ReplyMessage = {

@@ -1,6 +1,6 @@
 import { getDocumentData } from '../../libs/drive/file/getDocumentData'
 import { getLatestFile } from '../../libs/drive/file/getLatestFile'
-import { PostBroadcast } from '../../libs/line/webhook/broadcast'
+import { PostBroadcast } from '../../api/line/webhook/broadcast'
 import { isHoliday } from '../../libs/sys/date'
 import { disabeleSkipOnHoliday } from '../../options/devOptions'
 import { failedToGetAnnounceMessage } from '../../options/messages'
@@ -23,7 +23,7 @@ export function broadcastAnnounce() {
     console.error((error as Error).message)
     PostBroadcast({
       messages: [
-        { type: 'text', text: failedToGetAnnounceMessage},
+        { type: 'text', text: failedToGetAnnounceMessage },
         { type: 'text', text: (error as Error).message },
       ],
       notificationDisabled: false,

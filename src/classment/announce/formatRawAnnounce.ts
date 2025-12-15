@@ -1,5 +1,5 @@
-import { runOpenRouterAPI } from '../../libs/openrouter/openrouter'
-import { MessageBody } from '../../libs/line/messageTypes'
+import { runOpenRouterAPI } from '../../api/openrouter/openrouter'
+import { MessageBody } from '../../api/line/messageTypes'
 import { llmPrompt } from '../../options/llm'
 
 export function FormatRawAnnounce(documentData: string) {
