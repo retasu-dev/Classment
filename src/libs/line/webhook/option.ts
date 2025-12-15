@@ -1,5 +1,5 @@
-import { lineBotTokenSecret } from '../../../secrets';
-import { Message } from '../messageTypes';
+import { lineBotTokenSecret } from '../../../secrets'
+import { Message } from '../messageTypes'
 
 export function ReturnOption(payload: Message) {
   const options: GoogleAppsScript.URL_Fetch.URLFetchRequestOptions = {
@@ -9,6 +9,6 @@ export function ReturnOption(payload: Message) {
       Authorization: `Bearer ${lineBotTokenSecret}`,
     },
     payload: JSON.stringify(payload),
-  };
-  return options;
+  }
+  return options
 }

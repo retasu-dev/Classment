@@ -4,6 +4,6 @@ export const llmPrompt =
     '【終礼連絡】「【」が出てきたら改行不要な空白を削除' +
     '【時間割変更】クラス表記（例: 1-1）は残す' +
     '1クラスに複数変更がある場合「A / B」の形式（/ の前後に半角スペース）何限目の変更かも明記全体で変更がなければ「なし」とだけ書く' +
-    '学年ごとに分けず、全体をまとめる';
-export const openRouterModel = 'google/gemma-3-12b-it:free';
+    '学年ごとに分けず、全体をまとめる'
+export const openRouterModel = 'google/gemma-3-12b-it:free'
     

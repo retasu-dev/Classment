@@ -1,1 +1,1 @@
-export const apiCore = "https://api.line.me"
+export const apiCore = 'https://api.line.me'
