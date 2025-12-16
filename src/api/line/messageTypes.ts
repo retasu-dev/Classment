@@ -1,4 +1,4 @@
-import { RecipientObjects, DemographicObjects, LimitObjects } from './narrowCastProperties';
+import { RecipientObjects, DemographicObjects, LimitObjects } from './narrowCastProperties'
 
 export interface UserMessage {
   type: string;

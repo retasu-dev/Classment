@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-require-imports */
-/* eslint-disable no-undef */
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const GasPlugin = require('gas-webpack-plugin');
