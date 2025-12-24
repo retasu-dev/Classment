@@ -3,11 +3,11 @@ import { MessageBody } from '../../api/line/messageTypes'
 import { llmPrompt } from '../../options/llm'
 
 export function FormatRawAnnounce(documentData: string) {
-  const messages: MessageBody[] = [
-    {
-      type: 'text',
-      text: runOpenRouterAPI(documentData + llmPrompt),
-    },
-  ]
-  return messages
+	const messages: MessageBody[] = [
+		{
+			type: 'text',
+			text: runOpenRouterAPI(documentData + llmPrompt),
+		},
+	]
+	return messages
 }

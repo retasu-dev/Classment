@@ -5,15 +5,15 @@ import { broadcastAnnounce } from './classment/announce/broadcastAnnounce'
 declare let global: any
 
 global.broadcastTest = () => {
-  PostBroadcast({
-    messages: [
-      {
-        type: 'text',
-        text: 'Hello World!',
-      },
-    ],
-    notificationDisabled: false,
-  })
+	PostBroadcast({
+		messages: [
+			{
+				type: 'text',
+				text: 'Hello World!',
+			},
+		],
+		notificationDisabled: false,
+	})
 }
 
 global.doPost = doPost

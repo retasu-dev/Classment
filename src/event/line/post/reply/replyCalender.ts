@@ -4,9 +4,9 @@ import { FormatEventInfo } from '../../../../classment/calendar/formatEventInfo'
 import { GetWeekEvents } from '../../../../classment/calendar/getWeekEvents'
 
 export function ReplyCalendar(userMessage: UserMessage) {
-  const reply: ReplyMessage = {
-    replyToken: userMessage.replyToken,
-    messages: FormatEventInfo(GetWeekEvents()),
-  }
-  PostReply(reply)
+	const reply: ReplyMessage = {
+		replyToken: userMessage.replyToken,
+		messages: FormatEventInfo(GetWeekEvents()),
+	}
+	PostReply(reply)
 }
