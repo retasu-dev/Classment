@@ -1,4 +1,4 @@
-import { messageApi } from '../../../api/line/message'
+import { messageApi } from '../message'
 import { ReplyMessage } from '../messageTypes'
 import { ReturnOption } from './option'
 

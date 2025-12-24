@@ -1,4 +1,4 @@
-import { PostBroadcast } from '../../libs/line/webhook/broadcast'
+import { PostBroadcast } from '../../api/line/webhook/broadcast'
 import { FormatEventInfo } from './formatEventInfo'
 import { GetWeekEvents } from './getWeekEvents'
 
