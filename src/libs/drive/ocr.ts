@@ -1,5 +1,4 @@
 import { driveId } from '../../secrets'
-import { getLatestFile } from './file/getLatestFile'
 
 const option = {
 	ocr: true,
