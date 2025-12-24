@@ -1,4 +1,3 @@
-import { getDocumentData } from '../../libs/drive/file/getDocumentData'
 import { getLatestFile } from '../../libs/drive/file/getLatestFile'
 import { PostBroadcast } from '../../api/line/webhook/broadcast'
 import { isHoliday } from '../../libs/sys/date'
@@ -6,7 +5,8 @@ import { disabeleSkipOnHoliday } from '../../options/devOptions'
 import { failedToGetAnnounceMessage } from '../../options/messages'
 import { driveId } from '../../secrets'
 import { FormatRawAnnounce } from './formatRawAnnounce'
-import { getOutputOCRFolder, runOCR } from '../../libs/drive/ocr'
+import { runOCR } from '../../libs/drive/ocr'
+import { GetAnnounce } from './getAnnounce'
 
 export function broadcastAnnounce() {
 	if (!disabeleSkipOnHoliday && isHoliday()) {
@@ -17,7 +17,7 @@ export function broadcastAnnounce() {
 	let response
 	try {
 		runOCR(getLatestFile(driveId)!.getId())
-		response = FormatRawAnnounce(getDocumentData(getLatestFile(getOutputOCRFolder().getId())!.getId()))
+		response = FormatRawAnnounce(GetAnnounce())
 		if (!response) throw new Error('Formated annoucement is undefined.')
 	} catch (error) {
 		console.error('Failed to get announcement.')
